@@ -11,7 +11,6 @@ export default {
 </script>
 <!-- 手机端模式 -->
 <script src="../static/js/mobile.js"></script>
-<!-- <script src="../static/js/common.js"></script> -->
 
 <style>
 @import '../static/css/common.css';

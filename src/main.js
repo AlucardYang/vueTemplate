@@ -6,9 +6,11 @@ import router from './router';
 import VueResource from 'vue-resource';
 import Error from '@/components/shared/error/error.vue';
 import Home from '@/components/home/home.vue';
+import Mint from 'mint-ui';
 
-Vue.use(VueResource);
 Vue.config.productionTip = false;
+Vue.use(VueResource);
+Vue.use(Mint);
 
 // 增加监控
 // var fundebug = require("fundebug-javascript");
@@ -55,7 +57,7 @@ new Vue({
       this.$router.addRoutes([{
         path: path,
         component: routes[res.body.data.url] || Error,
-        name: 'dynamic'
+        name: 'dynamicComponent'
       }]);
       // 响应成功回调
     }, function (res) {

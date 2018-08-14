@@ -5,7 +5,10 @@ export default {
             errorTip: 'error'
         }
     },
+    mounted: function () {
+
+    },
     methods: {
-        
+
     }
 }
