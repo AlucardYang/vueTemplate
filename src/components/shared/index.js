@@ -1,6 +1,5 @@
-const wx = require('weixin-js-sdk');
-
-const readUuid = '',
+const wx = require('weixin-js-sdk'),
+    readUuid = '',
     lang = navigator.language.toLowerCase(),
     isOnTheMini = window.__wxjs_environment === 'miniprogram',
     isWeiXin = /micromessenger/.test(navigator.userAgent.toLowerCase());
@@ -20,21 +19,21 @@ function showContact() {
     });
     document.querySelector('.pageMask').addEventListener('touchmove', function (e) {
         e.preventDefault()
-    })
+    });
 };
 
 function hideContact() {
     $(".contactNav span").fadeOut(200);
     $(".contactNav").slideUp(200, function () {
         $(".pageMask").fadeOut(200, function () {
-            $(".pageMask").remove()
-            $(".contactNav span").show()
+            $(".pageMask").remove();
+            $(".contactNav span").show();
         })
     });
     $(".contactBtn").css({
         "transform": "rotate(0)"
     });
-    $(".contact").removeClass("active")
+    $(".contact").removeClass("active");
 };
 
 function newHtml() {
@@ -50,7 +49,7 @@ function newHtml() {
         authArea = '<div id="autoArea" style="margin: .47rem 0;font-size: .16rem;width: 2.4rem"><span>授權手機號：' + m + '</span><span id="changeAuto" style="float: right;color: #1097d5">更改</span></div>'
     }
     var mainArea = '<div class="select" style="display: ' + play + '">' + '<div class="selected">' + '<span id="login-pre">' + areaCode + '</span>' + '<select class="select-box">' + '<option value="+852">中國香港 +852</option>' + '<option value="+853">中國澳門 +853</option>' + '<option value="+86">中國大陸 +86</option>' + '<option value="+1">美國 +1</option>' + '</select>' + '</div>' + '<input id="tel" type="tel" placeholder="請輸入您的手機號" autofocus>' + '<em class="warning"></em>' + '</div>';
-    return ('<div class="login"><header></header><main>' + mainArea + authArea + '<button id="confirm">確定</button><footer>授權即代表您已閱讀並同意<em id="protocol">《私隱協議》</em></footer></main></div>')
+    return ('<div class="login"><header></header><main>' + mainArea + authArea + '<button id="confirm">確定</button><footer>授權即代表您已閱讀並同意<em id="protocol">《私隱協議》</em></footer></main></div>');
 }
 
 function againRegister(self) {
@@ -84,7 +83,7 @@ function againRegister(self) {
                 layer.msg(res.msg, {
                     time: 1500
                 }, function () {
-                    againPost = !1
+                    againPost = !1;
                 })
             }
         }
@@ -104,7 +103,7 @@ function register(data) {
                 layer.msg(remsg, {
                     time: 2500
                 }, function () {
-                    location.reload()
+                    location.reload();
                 })
             } else {
                 layer.msg(res.msg, {
@@ -121,7 +120,7 @@ function register(data) {
                     input.removeAttribute('disabled');
                     fakeDIv = d[0];
                     fakeVal = d[0];
-                    fakeNum = ''
+                    fakeNum = '';
                 })
             }
         }
@@ -135,7 +134,7 @@ function htmlInput(phone) {
 function getCookie(name) {
     var value = "; " + document.cookie;
     var parts = value.split("; " + name + "=");
-    if (parts.length === 2) return parts.pop().split(";").shift()
+    if (parts.length === 2) return parts.pop().split(";").shift();
 }
 
 function mainRegister() {
@@ -153,12 +152,12 @@ function mainRegister() {
             body.css("position", "fixed");
             var op = document.querySelector('.select-box').querySelectorAll('option')[regIndex];
             op.selected = 'selected';
-            op.setAttribute('selected', 'selected')
+            op.setAttribute('selected', 'selected');
         },
         cancel: function () {
             body.css("position", "initial");
             if ($('.send-tips').length) {
-                $('.send-tips').show()
+                $('.send-tips').show();
             }
         }
     });
@@ -174,7 +173,7 @@ function mainRegister() {
         var ar = document.getElementById('autoArea');
         changeAuto.addEventListener('click', function () {
             document.querySelector('.select').style.display = 'flex';
-            ar.parentNode.removeChild(ar)
+            ar.parentNode.removeChild(ar);
         }, !1)
     }
     telPhone.addEventListener('focus', function () {
@@ -182,7 +181,7 @@ function mainRegister() {
     });
     select.addEventListener('change', function () {
         div.textContent = select.options[select.selectedIndex].value;
-        index = select.selectedIndex
+        index = select.selectedIndex;
     }, !1);
     p.addEventListener('click', function () {
         layer.open({
@@ -212,7 +211,7 @@ function mainRegister() {
                         layer.msg('授權成功', {
                             time: 2500
                         }, function () {
-                            location.reload()
+                            location.reload();
                         })
                     } else {
                         layer.msg(res.msg, {
@@ -268,7 +267,7 @@ function mainRegister() {
                         cancel: function () {
                             body.css("position", "initial");
                             if ($('.send-tips').length) {
-                                $('.send-tips').show()
+                                $('.send-tips').show();
                             };
                             flag = !1;
                             againPost = !1
@@ -279,17 +278,17 @@ function mainRegister() {
                         time: 1500
                     })
                 }
-                self.removeAttribute('disabled')
+                self.removeAttribute('disabled');
             },
             error: function (res) {
                 layer.msg(res.status, {
                     time: 1500
                 }, function () {
-                    self.removeAttribute('disabled')
+                    self.removeAttribute('disabled');
                 })
             }
         });
-        warning.style.display = 'none'
+        warning.style.display = 'none';
     }, !1)
 }
 
@@ -316,20 +315,20 @@ function getInput() {
         if (fakeVal.nodeName.toLowerCase() === 'div') {
             if (e.which === 8) {
                 if (fakeVal === fakeDIv) {
-                    fakeVal = fakeDIv
+                    fakeVal = fakeDIv;
                 } else {
-                    fakeVal = fakeVal.previousElementSibling
+                    fakeVal = fakeVal.previousElementSibling;
                 }
                 fakeVal.textContent = '';
                 fakeNum = fakeNum.slice(0, -1)
             } else {
-                fakeVal = fakeVal.nextElementSibling
+                fakeVal = fakeVal.nextElementSibling;
             }
             this.value = ''
         } else {
             return !1
         }
-        input.style.left = fakeNum.length * .64 + 'rem'
+        input.style.left = fakeNum.length * .64 + 'rem';
     })
 }
 
@@ -344,7 +343,7 @@ function firstNOPost() {
             againPost = !1
         } else {
             a.text(n + 's');
-            n--
+            n--;
         }
     }, 1000)
 }
@@ -369,10 +368,10 @@ function likeBtn($btn) {
             } else {
                 url += "&from_ib_url=" + encodeURIComponent(window.location.href);
             }
-            location.href = url
+            location.href = url;
         }
     });
-    scrollEvent($('.favBtn-deg'))
+    scrollEvent($('.favBtn-deg'));
 }
 
 function codeHtml(num, code, imgSrc, sp) {
@@ -386,7 +385,7 @@ function codeHtml(num, code, imgSrc, sp) {
         asyncScirpt.src = '/static/js/clipboard.js';
         document.body.appendChild(asyncScirpt)
     }
-    return (code && num) ? newHtml : sp ? newOption : oldHtml
+    return (code && num) ? newHtml : sp ? newOption : oldHtml;
 }
 
 function copyNum() {
@@ -403,7 +402,7 @@ function scrollEvent(ele) {
         var maxHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
         var oneHeight = document.documentElement.getBoundingClientRect().height * 2;
         var maxTop = Math.max(document.documentElement.scrollTop, document.body.scrollTop);
-        oneHeight + maxTop >= maxHeight ? ele.fadeOut() : ele.fadeIn()
+        oneHeight + maxTop >= maxHeight ? ele.fadeOut() : ele.fadeIn();
     })
 }
 
@@ -447,7 +446,7 @@ function readReport(onReadyeNoReport) {
     var reportInterval = null;
     $(window).scroll(function () {
         var scrollTop = $(window).scrollTop();
-        maxScroll = scrollTop > maxScroll ? scrollTop : maxScroll
+        maxScroll = scrollTop > maxScroll ? scrollTop : maxScroll;
     })
 
     var report = function () {
@@ -457,7 +456,7 @@ function readReport(onReadyeNoReport) {
         var time = Math.round((nowTime - startTime) / 1000);
         var degree = ((maxScroll + windowH) / pageH).toFixed(2) * 1;
         if (degree > 1) {
-            degree = 1
+            degree = 1;
         }
         $.ajax({
             url: '/browse/submit?p=' + encodeURIComponent(window.location.href) + '&id=' + readUuid + '&time=5&degree=' + degree,
@@ -465,7 +464,7 @@ function readReport(onReadyeNoReport) {
         });
         // var browImg = new Image();
         if (time > 5 * 40) {
-            clearInterval(reportInterval)
+            clearInterval(reportInterval);
         }
     }
 
@@ -474,7 +473,7 @@ function readReport(onReadyeNoReport) {
         var windowH = $(window).height();
         var degree = ((maxScroll + windowH) / pageH).toFixed(2) * 1;
         if (degree > 1) {
-            degree = 1
+            degree = 1;
         }
         $.ajax({
             type: 'get',
@@ -486,25 +485,25 @@ function readReport(onReadyeNoReport) {
     }
     reportInterval = setInterval(function () {
         if (isRdady) {
-            report()
+            report();
         }
     }, 5000)
 };
 
-function reportWxShare () {
+function reportWxShare() {
     $.ajax({
         url: '/share/second-submit?logId=' + readUuid + '&url=' + encodeURIComponent(window.location.href.split('#')[0])
     });
 }
 
-function initWX (shareTitle, shareImg, shareDes, shareCuid, isOnlyShare) {
+function initWX(shareTitle, shareImg, shareDes, shareCuid, isOnlyShare) {
     if (wx && navigator.userAgent.toLowerCase().indexOf('micromessenger') >= 0) {
         let link = window.location.href.replace('wac=1', '');
         link = link.replace('forwarder_id=', 're_forwarder_id='); //原来的转发者重新命名
         if (shareCuid !== undefined && link.indexOf('?') === -1) {
-            link += '?forwarder_id=' + shareCuid
+            link += '?forwarder_id=' + shareCuid;
         } else {
-            link += '&forwarder_id=' + shareCuid
+            link += '&forwarder_id=' + shareCuid;
         }
         $.ajax({
             type: 'get',
