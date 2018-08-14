@@ -1,3 +1,4 @@
+// 手机兼容
 window.remCount = 0;
 var setRem = function () {
     var size = document.documentElement.clientWidth / 375 * 100;
