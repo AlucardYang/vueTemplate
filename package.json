@@ -1,8 +1,8 @@
 {
-  "name": "vue-project",
-  "version": "1.0.0",
-  "description": "A Vue.js project",
-  "author": "peter",
+  "name": "iBer",
+  "version": "2.0.0",
+  "description": "iBer",
+  "author": "iBer",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",

@@ -1,30 +1,20 @@
-import wxShare from '../shared/wxshare/wxshare.js'
-import readReport from '../shared/readreport/readreport.js'
+import { initWX, readReport } from '../shared/common/common.js';
 
 export default {
     name: 'Home',
-    components: {
-        wxShare,
-        readReport
-    },
     data() {
         return {
             sayHello: 'Hello World!',
-            readUuid: '',
             isOnlyShare: false,
-            shareTitle: '',
-            shareImg: '',
-            shareDes: '',
+            shareTitle: 'aaaa',
+            shareImg: 'http：//baidu.com',
+            shareDes: 'Hello World!',
             shareCuid: '',
         }
     },
     mounted: function () {
-        const _this = this;
-        setTimeout(() => {
-            _this.shareTitle = 'aaaa';
-            _this.shareImg = 'http：//baidu.com';
-            _this.shareDes = 'Hello World!';
-        }, 2000);
+        initWX(this.shareTitle, this.shareImg, this.shareDes, this.shareCuid, this.isOnlyShare);
+        readReport();
     },
     methods: {
 
